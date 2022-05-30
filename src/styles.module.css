@@ -1,0 +1,49 @@
+.searchPageContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: auto;
+}
+
+.searchHeader {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.searchBar {
+  width: 20rem;
+  padding: 10px;
+  margin: 0 1.5rem;
+  border-radius: 5px;
+  border: lightgray solid 1px;
+}
+
+.repo {
+  padding: 1rem;
+  margin: 1rem 1.5rem;
+  background-color: #f0f0f0f0;
+  min-width: 10rem;
+}
+
+.repoHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.toggled {
+  opacity: 50%;
+}
+
+.repoList {
+  display: grid;
+  grid: 12rem / auto auto auto auto;
+  margin: auto;
+}
+
+@media (max-width: 700px) {
+  .repoList {
+    grid: 12rem / auto auto;
+  }
+}
