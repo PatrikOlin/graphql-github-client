@@ -5,7 +5,7 @@ import ResetButton from "./components/ResetButton";
 import { ApolloProvider } from "@apollo/react-hooks";
 import client from "../../common/services/github-service/GithubService";
 import styles from "../../styles.module.css";
-import { Repo } from "../../common/interfaces/Repo"
+import { Repo } from "../../common/interfaces/Repo";
 
 function SearchPage() {
   const [searchQuery, setSearchQuery] = useState<string>("");

@@ -4,7 +4,7 @@ import { useDebounce } from "use-debounce";
 import { REPO_SEARCH } from "../../../common/services/github-service/queries";
 import Repository from "./Repository";
 import styles from "../../../styles.module.css";
-import { Repo } from "../../../common/interfaces/Repo"
+import { Repo } from "../../../common/interfaces/Repo";
 
 interface Props {
   searchQuery?: string;

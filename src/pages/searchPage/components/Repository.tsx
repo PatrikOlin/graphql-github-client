@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../../styles.module.css";
-import { Repo } from "../../../common/interfaces/Repo"
+import { Repo } from "../../../common/interfaces/Repo";
 
 interface Props {
   repo: Repo;
