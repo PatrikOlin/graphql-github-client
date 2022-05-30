@@ -3,8 +3,9 @@ import SearchBar from "./components/SearchBar";
 import RepositoryList from "./components/RepositoryList";
 import ResetButton from "./components/ResetButton";
 import { ApolloProvider } from "@apollo/react-hooks";
-import client from "../../common/github-service/GithubService";
+import client from "../../common/services/github-service/GithubService";
 import styles from "../../styles.module.css";
+import { Repo } from "../../common/interfaces/Repo"
 
 function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,16 +26,15 @@ function SearchPage() {
     let url = new URL(window.location.href);
     url.searchParams.delete("search");
     window.history.replaceState(null, "", url);
+    updateSearchQuery("");
   };
 
   const resetState = () => {
-    console.log("reset uppe");
-    updateSearchQuery("");
     clearSearchParams();
     setToggledRepos([]);
   };
 
-  const toggleRepo = (repo: any) => {
+  const toggleRepo = (repo: Repo) => {
     if (toggledRepos.some((r: any) => isEqual(r, repo))) {
       setToggledRepos(toggledRepos.filter((r: any) => !isEqual(r, repo)));
     }

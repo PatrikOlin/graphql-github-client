@@ -1,14 +1,15 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useDebounce } from "use-debounce";
-import { REPO_SEARCH } from "../../../common/github-service/queries";
+import { REPO_SEARCH } from "../../../common/services/github-service/queries";
 import Repository from "./Repository";
 import styles from "../../../styles.module.css";
+import { Repo } from "../../../common/interfaces/Repo"
 
 interface Props {
-  searchQuery?: string;
-  toggledRepos: any[];
-  toggleRepo: (arg: any) => void;
+  searchQuery: string;
+  toggledRepos: Repo[];
+  toggleRepo: (arg: Repo) => void;
 }
 
 const RepositoryList = ({ searchQuery, toggledRepos, toggleRepo }: Props) => {
@@ -50,7 +51,7 @@ const RepositoryList = ({ searchQuery, toggledRepos, toggleRepo }: Props) => {
         return (
           <Repository
             repo={repo}
-            toggled={!!toggledRepos.some((r: any) => isEqual(r, repo.node))}
+            toggled={!!toggledRepos.some((r: Repo) => isEqual(r, repo.node))}
             onToggled={() => toggleRepo(repo.node)}
             key={i}
           />

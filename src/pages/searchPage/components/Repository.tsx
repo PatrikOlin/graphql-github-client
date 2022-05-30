@@ -1,22 +1,11 @@
 import React from "react";
 import styles from "../../../styles.module.css";
-
-interface Repo {
-  node: {
-    name: string;
-    owner: {
-      login: string;
-    };
-    stargazers: {
-      totalCount: number;
-    };
-  };
-}
+import { Repo } from "../../../common/interfaces/Repo"
 
 interface Props {
-  repo?: Repo;
-  toggled?: boolean;
-  onToggled?: any;
+  repo: Repo;
+  toggled: boolean;
+  onToggled: () => void;
 }
 
 const Repository = ({ repo, toggled, onToggled }: Props) => {
