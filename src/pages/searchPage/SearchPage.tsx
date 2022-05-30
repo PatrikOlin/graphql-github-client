@@ -8,8 +8,8 @@ import styles from "../../styles.module.css";
 import { Repo } from "../../common/interfaces/Repo"
 
 function SearchPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [toggledRepos, setToggledRepos] = useState<any[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [toggledRepos, setToggledRepos] = useState<Repo[]>([]);
 
   useEffect(() => {
     const query = new URLSearchParams(window.location.search).get("search");
@@ -17,9 +17,12 @@ function SearchPage() {
   }, []);
 
   const updateSearchQuery = (query: string) => {
-    let uriQuery = encodeURIComponent(query);
-    window.history.replaceState(null, "", `?search=${uriQuery}`);
-    setSearchQuery(query ?? "");
+    setSearchQuery(query);
+
+    if (query) {
+      let uriQuery = encodeURIComponent(query);
+      window.history.replaceState(null, "", `?search=${uriQuery}`);
+    }
   };
 
   const clearSearchParams = () => {

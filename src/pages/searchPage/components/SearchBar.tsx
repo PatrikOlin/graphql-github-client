@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import styles from "../../../styles.module.css";
 
 interface Props {
-  value?: string;
-  onChange?: any;
+  value: string;
+  onChange: (value: string) => void;
 }
 
 const SearchBar = ({ value, onChange }: Props) => {

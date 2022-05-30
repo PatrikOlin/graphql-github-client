@@ -7,13 +7,14 @@ import styles from "../../../styles.module.css";
 import { Repo } from "../../../common/interfaces/Repo"
 
 interface Props {
-  searchQuery: string;
+  searchQuery?: string;
   toggledRepos: Repo[];
   toggleRepo: (arg: Repo) => void;
 }
 
 const RepositoryList = ({ searchQuery, toggledRepos, toggleRepo }: Props) => {
-  const [debouncedSearchQuery] = useDebounce(searchQuery, 1000);
+  const debounceMs = 250;
+  const [debouncedSearchQuery] = useDebounce(searchQuery, debounceMs);
   const { data, loading, error } = useQuery(REPO_SEARCH, {
     variables: { search_query: debouncedSearchQuery },
   });
